@@ -21,6 +21,22 @@ public class Professor implements User {
         this.courses = courses;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public String getSurname() {
+        return this.surname;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public String[] getCourses() {
+        return this.courses;
+    }
+
     public String getUsername() {
         return this.name + "." + this.surname;
     }
