@@ -1,6 +1,7 @@
 package it.unibo.composition;
 
 public class Exam {
+    int currentStudentCount = 0;
     int id;
     int maxStudents;
     int registeredStudents;
@@ -61,7 +62,8 @@ public class Exam {
             System.out.println("Iscrizioni chiuse: limite studenti massimi raggiunto");
         }
         else{
-            this.students;
+            this.students[this.currentStudentCount] = student;
+            this.currentStudentCount++;
         }
     }
 }
