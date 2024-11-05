@@ -56,7 +56,18 @@ public class Exam {
         return this.students;
     }
 
-    //iscrive lo studente all'appello. Qualora si sia raggiunto il limite massimo di studenti per l'appello, non fa nulla.
+    public String toString(){
+        return "Exam ["
+            + "id = " + this.id
+            + "max students = " + this.maxStudents
+            + "registered students = " + this.registeredStudents
+            + "course name = " + this.courseName
+            + "pofessor = " + this.professor
+            + "room = " + this.room
+            + "students = " + this.students.toString()
+            + "]";
+    }
+
     public void registerStudent(Student student){
         if(this.students.length == this.maxStudents){
             System.out.println("Iscrizioni chiuse: limite studenti massimi raggiunto");
