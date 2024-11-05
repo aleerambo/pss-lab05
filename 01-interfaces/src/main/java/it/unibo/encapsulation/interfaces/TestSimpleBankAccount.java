@@ -36,14 +36,14 @@ public class TestSimpleBankAccount {
          * 5) Stampare a video l'ammontare dei due conti e verificare la
          * correttezza del risultato
          */
-        System.out.println("Saldo Andrea Rossi" + AndreaRossi.getBalance());    //100
-        System.out.println("Saldo Alex Bianchi" + AlexBianchi.getBalance());    //400
+        System.out.println("Saldo Andrea Rossi: " + AndreaRossi.getBalance());    //100
+        System.out.println("Saldo Alex Bianchi: " + AlexBianchi.getBalance());    //400
 
         // 6) Provare a prelevare fornendo un id utente sbagliato
         AlexBianchi.withdraw(accountHolderAndreaRossi.getUserID(), 10); //Stampa di errore
 
         // 7) Controllare nuovamente l'ammontare
-        System.out.println("Saldo Andrea Rossi" + AndreaRossi.getBalance());    //100
-        System.out.println("Saldo Alex Bianchi" + AlexBianchi.getBalance());    //400
+        System.out.println("Saldo Andrea Rossi: " + AndreaRossi.getBalance());    //100
+        System.out.println("Saldo Alex Bianchi: " + AlexBianchi.getBalance());    //400
     }
 }
