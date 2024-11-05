@@ -1,10 +1,12 @@
 package it.unibo.composition;
 
+import java.util.Arrays;
+
 public class Exam {
     private int currentStudentCount = 0;
     private final int id;
     private final int maxStudents;
-    private final int registeredStudents;
+    private int registeredStudents;
     private final String courseName;
     private final Professor professor;
     private final ExamRoom room;  //(fornita nei sorgenti)
@@ -16,8 +18,7 @@ public class Exam {
         final int registeredStudents,
         final String courseName,
         final Professor professor,
-        final ExamRoom room,
-        final Student[] students
+        final ExamRoom room
     ) {
         this.id = id;
         this.maxStudents = maxStudents;
@@ -25,7 +26,7 @@ public class Exam {
         this.courseName = courseName;
         this.professor = professor;
         this.room = room;
-        this.students = students;
+        this.students = new Student[maxStudents];
     }
 
     public int getId(){
@@ -57,24 +58,25 @@ public class Exam {
     }
 
     public String toString(){
-        return "Exam ["
+        return "Exam [ "
             + "id = " + this.id
-            + "max students = " + this.maxStudents
-            + "registered students = " + this.registeredStudents
-            + "course name = " + this.courseName
-            + "pofessor = " + this.professor
-            + "room = " + this.room
-            + "students = " + this.students.toString()
-            + "]";
+            + ", max students = " + this.maxStudents
+            + ", registered students = " + this.registeredStudents
+            + ", course name = " + this.courseName
+            + ", pofessor = " + this.professor
+            + ", room = " + this.room.toString()
+            + ", students = " + Arrays.toString(this.students)
+            + " ]";
     }
 
     public void registerStudent(Student student){
-        if(this.students.length == this.maxStudents){
+        if(this.currentStudentCount == this.maxStudents){
             System.out.println("Iscrizioni chiuse: limite studenti massimi raggiunto");
         }
         else{
             this.students[this.currentStudentCount] = student;
             this.currentStudentCount++;
+            this.registeredStudents++;
         }
     }
 }

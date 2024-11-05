@@ -19,8 +19,8 @@ public class Testing {
 
         // 4) Creare due esami, uno con nMaxStudents=10, l'altro con
         // nMaxStudents=2
-        Exam mathExam = new Exam(10, 10, 0, "math-1", pippoBaudo, room2, null);
-        Exam literatureExam = new Exam(2, 2, 0, "literature-1", giadaSelleri, room1, null);
+        Exam mathExam = new Exam(10, 10, 0, "math-1", pippoBaudo, room2);
+        Exam literatureExam = new Exam(2, 2, 0, "literature-1", giadaSelleri, room1);
 
         // 5) Iscrivere tutti e 3 gli studenti agli esami
         mathExam.registerStudent(alessandroRambaldi);
@@ -32,7 +32,7 @@ public class Testing {
         literatureExam.registerStudent(filippoNam);
 
         // 6) Stampare in stdout la rapresentazione in stringa dei due esami
-        mathExam.toString();
-        literatureExam.toString();
+        System.out.println(mathExam.toString());
+        System.out.println(literatureExam.toString());
     }
 }
