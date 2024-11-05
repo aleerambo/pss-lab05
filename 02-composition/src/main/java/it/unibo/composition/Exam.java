@@ -1,14 +1,14 @@
 package it.unibo.composition;
 
 public class Exam {
-    int currentStudentCount = 0;
-    int id;
-    int maxStudents;
-    int registeredStudents;
-    String courseName;
-    Professor professor;
-    ExamRoom room;  //(fornita nei sorgenti)
-    Student[] students;
+    private int currentStudentCount = 0;
+    private final int id;
+    private final int maxStudents;
+    private final int registeredStudents;
+    private final String courseName;
+    private final Professor professor;
+    private final ExamRoom room;  //(fornita nei sorgenti)
+    private final Student[] students;
 
     public Exam(
         final int id,
