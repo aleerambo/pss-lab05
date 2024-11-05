@@ -21,6 +21,18 @@ public class Professor implements User {
         this.courses = courses;
     }
 
+    public String getUsername() {
+        return this.name + "." + this.surname;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public String getDescription() {
+        return this.toString();
+    }
+
     public void replaceCourse(String courseName, int index){
         if(index <= 0 || index > this.courses.length){
             System.out.println("Invalid index: " + index);
