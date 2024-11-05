@@ -8,6 +8,9 @@ public class SimpleBankAccount implements BankAccount {
      * - int transactions: numero delle operazioni effettuate
      * - static double ATM_TRANSACTION_FEE = 1: costo delle operazioni via ATM
      */
+    double balance;
+    int transactions;
+    static double ATM_TRANSACTION_FEE = 1;
     private final int id;
 
     /*
@@ -16,6 +19,7 @@ public class SimpleBankAccount implements BankAccount {
      */
     public SimpleBankAccount(final int id, final double balance) {
         this.id = id;
+        this.balance = balance;
     }
 
     /*
@@ -29,11 +33,11 @@ public class SimpleBankAccount implements BankAccount {
     }
 
     public double getBalance() {
-        return 0.0;
+        return this.balance;
     }
 
     public int getTransactionsCount() {
-        return 0;
+        return this.transactions;
     }
 
     public void deposit(final int id, final double amount) {
@@ -42,6 +46,13 @@ public class SimpleBankAccount implements BankAccount {
          * conto Nota: il deposito va a buon fine solo se l'id utente
          * corrisponde
          */
+        if(this.id == id){
+            this.transactions += 1;
+            this.balance += amount;
+        }
+        else{
+            System.out.println("Operazione non autorizzata: l'ID utente NON corrisponde.");
+        }
     }
 
     public void withdraw(final int id, final double amount) {
@@ -50,6 +61,13 @@ public class SimpleBankAccount implements BankAccount {
          * conto. Note: - Il conto puo' andare in rosso (ammontare negativo) -
          * Il prelievo va a buon fine solo se l'id utente corrisponde
          */
+        if(this.id == id){
+            this.transactions += 1;
+            this.balance -= amount;
+        }
+        else{
+            System.out.println("Operazione non autorizzata: l'ID utente NON corrisponde.");
+        }
     }
 
     public void depositFromATM(final int id, final double amount) {
@@ -59,6 +77,13 @@ public class SimpleBankAccount implements BankAccount {
          * all'uso dell'ATM (bancomat) Nota: il deposito va a buon fine solo se
          * l'id utente corrisponde
          */
+        if(this.id == id){
+            this.transactions += 1;
+            this.balance = this.balance + amount - ATM_TRANSACTION_FEE;
+        }
+        else{
+            System.out.println("Operazione non autorizzata: l'ID utente NON corrisponde.");
+        }
     }
 
     public void withdrawFromATM(final int id, final double amount) {
@@ -69,6 +94,13 @@ public class SimpleBankAccount implements BankAccount {
          * negativo) - Il prelievo va a buon fine solo se l'id utente
          * corrisponde
          */
+        if(this.id == id){
+            this.transactions += 1;
+            this.balance = this.balance - amount - ATM_TRANSACTION_FEE;
+        }
+        else{
+            System.out.println("Operazione non autorizzata: l'ID utente NON corrisponde.");
+        }
     }
 
     public void chargeManagementFees(final int id) {
